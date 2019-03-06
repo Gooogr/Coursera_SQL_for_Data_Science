@@ -1,1 +1,1 @@
-# Coursera_SQL_for_Data_Science
+Файлы и матриалы по курсу SQL for [Data Science](https://www.coursera.org/learn/sql-for-data-science/)
