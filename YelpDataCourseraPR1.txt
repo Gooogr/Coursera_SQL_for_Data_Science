@@ -18,45 +18,70 @@ Part 1: Yelp Dataset Profiling and Understanding
 
 1. Profile the data by finding the total number of records for each of the tables below:
 	
-i. Attribute table =
-ii. Business table =
-iii. Category table =
-iv. Checkin table =
-v. elite_years table =
-vi. friend table = 
-vii. hours table =
-viii. photo table = 
-ix. review table = 
-x. tip table = 
-xi. user table =
-	
+i. Attribute table = 10000
+ii. Business table = 10000
+iii. Category table = 10000
+iv. Checkin table = 10000
+v. elite_years table = 10000
+vi. friend table = 10000
+vii. hours table = 10000
+viii. photo table = 10000
+ix. review table = 10000
+x. tip table = 10000
+xi. user table = 10000
+
+SELECT COUNT(*)
+FROM table_name
 
 
 2. Find the total distinct records by either the foreign key or primary key for each table. If two foreign keys are listed in the table, please specify which foreign key.
 
-i. Business =
-ii. Hours =
-iii. Category =
-iv. Attribute =
-v. Review =
-vi. Checkin = 
-vii. Photo =
-viii. Tip = 
-ix. User = 
-x. Friend = 
-xi. Elite_years =
+i. Business = id: 10000
+ii. Hours = business_id: 1562
+iii. Category = business_id: 2643
+iv. Attribute = business_id: 1115
+v. Review = id: 10000, business_id: 8090, user_id: 9581
+vi. Checkin = business_id: 493
+vii. Photo = id: 10000, photo: 6493
+viii. Tip = user_id: 537, business_id: 3979
+ix. User = id: 10000
+x. Friend = user_id: 11
+xi. Elite_years = user_id: 2780
 
 Note: Primary Keys are denoted in the ER-Diagram with a yellow key icon.	
 
+SELECT COUNT(DISTINCT key_name)
+FROM table_name
 
 
 3. Are there any columns with null values in the Users table? Indicate "yes," or "no."
 
-	Answer:
-	
+	Answer: 
+	No
 	
 	SQL code used to arrive at answer:
-	
+	Select
+	Count(*) - Count(id),
+	Count(*) - Count(name),
+	Count(*) - Count(review_count),
+	Count(*) - Count(yelping_since),
+	Count(*) - Count(useful),
+	Count(*) - Count(funny),
+	Count(*) - Count(cool),
+	Count(*) - Count(fans),
+	Count(*) - Count(average_stars),
+	Count(*) - Count(compliment_hot),
+	Count(*) - Count(compliment_more),
+	Count(*) - Count(compliment_profile),
+	Count(*) - Count(compliment_cute),
+	Count(*) - Count(compliment_list),
+	Count(*) - Count(compliment_note),
+	Count(*) - Count(compliment_plain),
+	Count(*) - Count(compliment_cool),
+	Count(*) - Count(compliment_funny),
+	Count(*) - Count(compliment_writer),
+	Count(*) - Count(compliment_photos)
+	From user
 	
 
 	
@@ -104,7 +129,7 @@ i. Avon
 SQL code used to arrive at answer:
 
 
-Copy and Paste the Resulting Table Below (2 columns ñ star rating and count):
+Copy and Paste the Resulting Table Below (2 columns ‚Äì star rating and count):
 
 
 ii. Beachwood
@@ -112,7 +137,7 @@ ii. Beachwood
 SQL code used to arrive at answer:
 
 
-Copy and Paste the Resulting Table Below (2 columns ñ star rating and count):
+Copy and Paste the Resulting Table Below (2 columns ‚Äì star rating and count):
 		
 
 
@@ -149,7 +174,7 @@ Copy and Paste the Resulting Table Below (2 columns ñ star rating and count):
 
 	
 	
-11. Is there a strong relationship (or correlation) between having a high number of fans and being listed as "useful" or "funny?" Out of the top 10 users with the highest number of fans, what percent are also listed as ìusefulî or ìfunnyî?
+11. Is there a strong relationship (or correlation) between having a high number of fans and being listed as "useful" or "funny?" Out of the top 10 users with the highest number of fans, what percent are also listed as ‚Äúuseful‚Äù or ‚Äúfunny‚Äù?
 
 Key:
 0% - 25% - Low relationship
