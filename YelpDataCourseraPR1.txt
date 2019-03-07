@@ -432,12 +432,156 @@ Ideas for analysis include: Parsing out keywords and business attributes for sen
 	
 i. Indicate the type of analysis you chose to do:
          
+Clustering businesses to find commonalities or anomalies between them         
          
 ii. Write 1-2 brief paragraphs on the type of data you will need for your analysis and why you chose that data:
-                           
+City - Phoenix
+My dataset - business category, city, stars amounts, review count.
+My goal was understanding what kind of businesess people like the most and how it correspond to quantity of their reviews. 
                   
 iii. Output of your finished dataset:
-         
-         
+Most like
++------------------------+---------+-------+--------------+
+| category               | city    | stars | review_count |
++------------------------+---------+-------+--------------+
+| Auto Detailing         | Phoenix |   5.0 |           40 |
+| Automotive             | Phoenix |   5.0 |           40 |
+| Car Wash               | Phoenix |   5.0 |           40 |
+| Chiropractors          | Phoenix |   5.0 |           19 |
+| Health & Medical       | Phoenix |   5.0 |           19 |
+| Beauty & Spas          | Phoenix |   5.0 |           18 |
+| Doctors                | Phoenix |   5.0 |           18 |
+| Massage                | Phoenix |   5.0 |           18 |
+| Massage Therapy        | Phoenix |   5.0 |           18 |
+| Orthopedists           | Phoenix |   5.0 |           18 |
+| Orthotics              | Phoenix |   5.0 |           18 |
+| Active Life            | Phoenix |   5.0 |            9 |
+| Hiking                 | Phoenix |   5.0 |            9 |
+| Seafood                | Phoenix |   4.5 |            7 |
+| Soul Food              | Phoenix |   4.5 |            7 |
+| American (Traditional) | Phoenix |   4.0 |          431 |
+| Barbeque               | Phoenix |   4.0 |          431 |
+| Bars                   | Phoenix |   4.0 |          431 |
+| Food                   | Phoenix |   4.0 |          431 |
+| Nightlife              | Phoenix |   4.0 |          431 |
+| Restaurants            | Phoenix |   4.0 |          431 |
+| Smokehouse             | Phoenix |   4.0 |          431 |
+| Fences & Gates         | Phoenix |   4.0 |           13 |
+| Financial Services     | Phoenix |   3.5 |           80 |
+| Hotels & Travel        | Phoenix |   3.5 |           80 |
++------------------------+---------+-------+--------------+
+(Output limit exceeded, 25 of 39 total rows shown)
+
+Most dislike
++------------------------+---------+-------+--------------+
+| category               | city    | stars | review_count |
++------------------------+---------+-------+--------------+
+| Burgers                | Phoenix |   2.0 |            8 |
+| Fast Food              | Phoenix |   2.0 |            8 |
+| Sports Bars            | Phoenix |   3.0 |           60 |
+| Coffee & Tea           | Phoenix |   3.0 |           52 |
+| Contractors            | Phoenix |   3.0 |            5 |
+| Home Services          | Phoenix |   3.0 |            5 |
+| Financial Services     | Phoenix |   3.5 |           80 |
+| Hotels & Travel        | Phoenix |   3.5 |           80 |
+| Insurance              | Phoenix |   3.5 |           80 |
+| Travel Services        | Phoenix |   3.5 |           80 |
+| American (New)         | Phoenix |   3.5 |           63 |
+| Professional Services  | Phoenix |   3.5 |           15 |
+| Restaurant Supplies    | Phoenix |   3.5 |           15 |
+| Shopping               | Phoenix |   3.5 |           15 |
+| Wholesale Stores       | Phoenix |   3.5 |           15 |
+| Wholesalers            | Phoenix |   3.5 |           15 |
+| American (Traditional) | Phoenix |   4.0 |          431 |
+| Barbeque               | Phoenix |   4.0 |          431 |
+| Bars                   | Phoenix |   4.0 |          431 |
+| Food                   | Phoenix |   4.0 |          431 |
+| Nightlife              | Phoenix |   4.0 |          431 |
+| Restaurants            | Phoenix |   4.0 |          431 |
+| Smokehouse             | Phoenix |   4.0 |          431 |
+| Fences & Gates         | Phoenix |   4.0 |           13 |
+| Seafood                | Phoenix |   4.5 |            7 |
++------------------------+---------+-------+--------------+
+(Output limit exceeded, 25 of 39 total rows shown)
+
+The hieghst review count
++------------------------+---------+-------+--------------+
+| category               | city    | stars | review_count |
++------------------------+---------+-------+--------------+
+| American (Traditional) | Phoenix |   4.0 |          431 |
+| Barbeque               | Phoenix |   4.0 |          431 |
+| Bars                   | Phoenix |   4.0 |          431 |
+| Food                   | Phoenix |   4.0 |          431 |
+| Nightlife              | Phoenix |   4.0 |          431 |
+| Restaurants            | Phoenix |   4.0 |          431 |
+| Smokehouse             | Phoenix |   4.0 |          431 |
+| Financial Services     | Phoenix |   3.5 |           80 |
+| Hotels & Travel        | Phoenix |   3.5 |           80 |
+| Insurance              | Phoenix |   3.5 |           80 |
+| Travel Services        | Phoenix |   3.5 |           80 |
+| American (New)         | Phoenix |   3.5 |           63 |
+| Sports Bars            | Phoenix |   3.0 |           60 |
+| Coffee & Tea           | Phoenix |   3.0 |           52 |
+| Auto Detailing         | Phoenix |   5.0 |           40 |
+| Automotive             | Phoenix |   5.0 |           40 |
+| Car Wash               | Phoenix |   5.0 |           40 |
+| Chiropractors          | Phoenix |   5.0 |           19 |
+| Health & Medical       | Phoenix |   5.0 |           19 |
+| Beauty & Spas          | Phoenix |   5.0 |           18 |
+| Doctors                | Phoenix |   5.0 |           18 |
+| Massage                | Phoenix |   5.0 |           18 |
+| Massage Therapy        | Phoenix |   5.0 |           18 |
+| Orthopedists           | Phoenix |   5.0 |           18 |
+| Orthotics              | Phoenix |   5.0 |           18 |
++------------------------+---------+-------+--------------+
+(Output limit exceeded, 25 of 39 total rows shown)
+ 
+The lowest review count
++-----------------------+---------+-------+--------------+
+| category              | city    | stars | review_count |
++-----------------------+---------+-------+--------------+
+| Contractors           | Phoenix |   3.0 |            5 |
+| Home Services         | Phoenix |   3.0 |            5 |
+| Seafood               | Phoenix |   4.5 |            7 |
+| Soul Food             | Phoenix |   4.5 |            7 |
+| Burgers               | Phoenix |   2.0 |            8 |
+| Fast Food             | Phoenix |   2.0 |            8 |
+| Active Life           | Phoenix |   5.0 |            9 |
+| Hiking                | Phoenix |   5.0 |            9 |
+| Fences & Gates        | Phoenix |   4.0 |           13 |
+| Professional Services | Phoenix |   3.5 |           15 |
+| Restaurant Supplies   | Phoenix |   3.5 |           15 |
+| Shopping              | Phoenix |   3.5 |           15 |
+| Wholesale Stores      | Phoenix |   3.5 |           15 |
+| Wholesalers           | Phoenix |   3.5 |           15 |
+| Beauty & Spas         | Phoenix |   5.0 |           18 |
+| Doctors               | Phoenix |   5.0 |           18 |
+| Massage               | Phoenix |   5.0 |           18 |
+| Massage Therapy       | Phoenix |   5.0 |           18 |
+| Orthopedists          | Phoenix |   5.0 |           18 |
+| Orthotics             | Phoenix |   5.0 |           18 |
+| Chiropractors         | Phoenix |   5.0 |           19 |
+| Health & Medical      | Phoenix |   5.0 |           19 |
+| Auto Detailing        | Phoenix |   5.0 |           40 |
+| Automotive            | Phoenix |   5.0 |           40 |
+| Car Wash              | Phoenix |   5.0 |           40 |
++-----------------------+---------+-------+--------------+
+(Output limit exceeded, 25 of 39 total rows shown)
+
+It can be seen that the most appreciated businesses are not related to food. 
+This directly correlates with the number of assessments - people rarely expect something osbennogo from such a service and either praise it or not give it an estimate.
+On the other hand, to restaurants and other similar establishments, people are much more demanding, and they are clearly divided into those that get about 4 and about 2 points.
+
 iv. Provide the SQL code you used to create your final dataset:
+SELECT
+c.category,
+b.city,
+b.stars,
+b.review_count
+FROM ((category c INNER JOIN business b ON c.business_id = b.id) INNER JOIN hours h ON b.id = h.business_id) 
+WHERE b.city = 'Phoenix' 
+GROUP BY c.category
+ORDER BY b.stars DESC|ASC, b.review_count DESC|ASC
+
+
 
