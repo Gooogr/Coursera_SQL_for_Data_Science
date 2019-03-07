@@ -323,13 +323,51 @@ Key:
 76% - 100% - Strong relationship
 	
 	SQL code used to arrive at answer:
+	# get limited table
+	SELECT
+	name,
+	fans,
+	useful
+	From user
+	Order by fans DESC
+	Limit 10
 	
-	
+	# calculate Pearson`s correlation (https://www.red-gate.com/simple-talk/blogs/statistics-sql-pearsons-correlation/)
+	Doesn`t not work in online version of SQLite from coursera course and I can`t install addition function SQRT()
+	SELECT 
+	(SUM(items.fans*items.useful) - (SUM(items.fans)*SUM(items.useful)))/COUNT(items.fans) as num,	
+	SQRT(SUM(items.fans*items.fans) -   (SUM(items.fans*items.fans)/COUNT(items.fans)))*SQRT(SUM(items.useful*items.useful) - (SUM(items.useful*items.useful)/COUNT(items.useful))) as denom	
+	num/denom as corr
+	FROM (SELECT
+	      fans,
+	      useful
+	      From user
+	      Order by fans DESC
+	      Limit 10) items
+	      
 	Copy and Paste the Result Below:
 	
+	+-----------+------+--------+
+	| name      | fans | useful |
+	+-----------+------+--------+
+	| Amy       |  503 |   3226 |
+	| Mimi      |  497 |    257 |
+	| Harald    |  311 | 122921 |
+	| Gerald    |  253 |  17524 |
+	| Christine |  173 |   4834 |
+	| Lisa      |  159 |     48 |
+	| Cat       |  133 |   1062 |
+	| William   |  126 |   9363 |
+	| Fran      |  124 |   9851 |
+	| Lissa     |  120 |    455 |
+	+-----------+------+--------+
+	corr_useful = 0.1408
+	Low correlation between fans - useful
+
 	
 	Please explain your findings and interpretation of the results:
-	
+	The result is 0.1408, which means that Pearson correlation is low. But in this case Spearman correlation is more reliable, because we have anomaly values for Harald and Gerald. 
+	So, Spearman correlation is rs = 0.06667, p = 0.85481. Correlation low, but can`t be deny as insignificant with p level 0.05. We need more data.
 	
 	
 
