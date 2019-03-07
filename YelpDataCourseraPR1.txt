@@ -374,29 +374,55 @@ Key:
 Part 2: Inferences and Analysis
 
 1. Pick one city and category of your choice and group the businesses in that city or category by their overall star rating. Compare the businesses with 2-3 stars to the businesses with 4-5 stars and answer the following questions. Include your code.
+
+I chose Phoenix and Food and got two places: Starbucks and Bootleggers Modern American Smokehouse 
 	
 i. Do the two groups you chose to analyze have a different distribution of hours?
-
+Yes, 11:00 - 22:00 and 5:00 - 20:00
 
 ii. Do the two groups you chose to analyze have a different number of reviews?
-         
+Yes, 431 vs 52         
          
 iii. Are you able to infer anything from the location data provided between these two groups? Explain.
+ No, their locations different. One place based in the center of city, and another - at the suburbs.
 
 SQL code used for analysis:
+SELECT
+c.category,
+b.city,
+b.stars,
+h.hours,
+b.review_count,
+b.name,
+b.address
+FROM (category c INNER JOIN business b ON c.business_id = b.id) INNER JOIN hours h ON b.id = h.business_id
+WHERE b.city = 'Phoenix' AND c.category = 'Food'
+GROUP BY b.stars
 
-		
++----------------------+--------------+----------------------------------------+-----------------------------+
+| category | city    | stars | hours                | review_count | name                                   | address                     |
++----------+---------+-------+----------------------+--------------+----------------------------------------+-----------------------------+
+| Food     | Phoenix |   3.0 | Saturday|5:00-20:00  |           52 | Starbucks                              | 4605 E Chandler Blvd, Ste A |
+| Food     | Phoenix |   4.0 | Saturday|11:00-22:00 |          431 | Bootleggers Modern American Smokehouse | 3375 E Shea Blvd            |
++----------+---------+-------+----------------------+--------------+----------------------------------------+-----------------------------+		
 		
 2. Group business based on the ones that are open and the ones that are closed. What differences can you find between the ones that are still open and the ones that are closed? List at least two differences and the SQL code you used to arrive at your answer.
 		
 i. Difference 1:
-         
+Still opened businesses have more stars then already closed         
          
 ii. Difference 2:
-         
+Still opened businesses have more reviews then already closed            
          
          
 SQL code used for analysis:
+SELECT 
+AVG(b.stars),
+SUM(b.review_count),
+AVG(b.review_count),
+is_open
+FROM business b INNER JOIN review r ON b.id = r.id
+GROUP BY b.is_open
 
 	
 	
